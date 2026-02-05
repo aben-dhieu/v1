@@ -29,10 +29,10 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        /* Fallback gradient images for universal accessibility */
-        .hero-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .avatar-bg { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-        .profile-bg { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        /* Avatar gradients for universal accessibility */
+        .avatar-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .avatar-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .avatar-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
@@ -60,41 +60,42 @@
 </header>
 
 <main class="flex-grow">
-<!-- Hero Section -->
+<!-- Hero Section with Unsplash Background -->
 <section class="relative px-6 py-12 md:py-24">
 <div class="mx-auto max-w-7xl">
 <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-<div class="relative z-10 flex flex-col gap-8">
+<div class="relative z-20 flex flex-col gap-8">
 <div>
-<h1 class="text-4xl font-black leading-tight tracking-tight text-slate-900 dark:text-white md:text-6xl">
+<h1 class="text-4xl font-black leading-tight tracking-tight text-slate-900 dark:text-white md:text-6xl drop-shadow-lg">
     Mehr Zeit. <br/>
     <span class="text-primary">Mehr Ordnung.</span> <br/>
     Mehr Leichtigkeit.
 </h1>
-<p class="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-lg">
+<p class="mt-6 text-lg text-slate-600 dark:text-slate-200 max-w-lg drop-shadow-md">
     Professionelle Haushaltshilfe in München für Senioren, Familien und Berufstätige. Wir schenken Ihnen Freiraum für die wichtigen Dinge im Leben.
 </p>
 </div>
 <div class="flex flex-wrap gap-4">
-<button class="rounded-xl bg-primary px-8 py-4 text-base font-bold text-white hover:bg-primary/90 transition-all shadow-lg shadow-primary/25">
+<button class="rounded-xl bg-primary px-8 py-4 text-base font-bold text-white hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 drop-shadow-lg">
     Jetzt unverbindlich anfragen
 </button>
-<button class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-8 py-4 text-base font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
+<button class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-8 py-4 text-base font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all shadow-md">
     Unsere Leistungen
 </button>
 </div>
-<div class="flex items-center gap-4 text-sm text-slate-500">
+<div class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 drop-shadow-sm">
 <div class="flex -space-x-2">
-<div class="h-8 w-8 rounded-full border-2 border-white avatar-bg"></div>
-<div class="h-8 w-8 rounded-full border-2 border-white avatar-bg" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
-<div class="h-8 w-8 rounded-full border-2 border-white avatar-bg" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);"></div>
+<div class="h-8 w-8 rounded-full border-2 border-white avatar-1"></div>
+<div class="h-8 w-8 rounded-full border-2 border-white avatar-2"></div>
+<div class="h-8 w-8 rounded-full border-2 border-white avatar-3"></div>
 </div>
 <span>Über 200+ zufriedene Kunden in München</span>
 </div>
 </div>
 <div class="relative hidden lg:block">
-<div class="aspect-[4/5] w-full rounded-2xl hero-bg shadow-2xl flex items-center justify-center text-white text-4xl font-bold opacity-20">
-    ✨
+<!-- Updated with the specific Unsplash image you requested -->
+<div class="aspect-[4/5] w-full rounded-2xl bg-cover bg-center bg-no-repeat shadow-2xl" 
+     style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=1000&fit=crop')">
 </div>
 <div class="absolute -bottom-6 -left-6 rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-xl border border-slate-100 dark:border-slate-700">
 <div class="flex items-center gap-4">
@@ -117,7 +118,7 @@
 <div class="mx-auto max-w-7xl">
 <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
 <div class="relative flex-shrink-0">
-<div class="h-64 w-64 md:h-80 md:w-80 overflow-hidden rounded-full border-8 border-primary/10 shadow-inner profile-bg"></div>
+<div class="h-64 w-64 md:h-80 md:w-80 overflow-hidden rounded-full border-8 border-primary/10 shadow-inner avatar-1"></div>
 <div class="absolute bottom-4 right-4 h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg">
 <span class="material-symbols-outlined">favorite</span>
 </div>
@@ -152,54 +153,42 @@
 <span class="material-symbols-outlined text-3xl">mop</span>
 </div>
 <h3 class="mb-3 text-xl font-bold">Hausreinigung</h3>
-<p class="text-slate-600 dark:text-slate-400">
-    Gründliche Reinigung aller Wohnräume, Küchen und Badezimmer für ein hygienisches Wohlfühlklima.
-</p>
+<p class="text-slate-600 dark:text-slate-400">Gründliche Reinigung aller Wohnräume, Küchen und Badezimmer für ein hygienisches Wohlfühlklima.</p>
 </div>
 <div class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
 <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
 <span class="material-symbols-outlined text-3xl">iron</span>
 </div>
 <h3 class="mb-3 text-xl font-bold">Wäscheservice</h3>
-<p class="text-slate-600 dark:text-slate-400">
-    Wir kümmern uns um Ihre Wäsche: Waschen, Trocknen, Zusammenlegen und professionelles Bügeln.
-</p>
+<p class="text-slate-600 dark:text-slate-400">Wir kümmern uns um Ihre Wäsche: Waschen, Trocknen, Zusammenlegen und professionelles Bügeln.</p>
 </div>
 <div class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
 <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
 <span class="material-symbols-outlined text-3xl">shopping_cart</span>
 </div>
 <h3 class="mb-3 text-xl font-bold">Einkaufshilfe</h3>
-<p class="text-slate-600 dark:text-slate-400">
-    Wöchentliche Lebensmitteleinkäufe oder Besorgungen – wir erledigen das für Sie zuverlässig.
-</p>
+<p class="text-slate-600 dark:text-slate-400">Wöchentliche Lebensmitteleinkäufe oder Besorgungen – wir erledigen das für Sie zuverlässig.</p>
 </div>
 <div class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
 <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
 <span class="material-symbols-outlined text-3xl">inventory_2</span>
 </div>
 <h3 class="mb-3 text-xl font-bold">Organisation</h3>
-<p class="text-slate-600 dark:text-slate-400">
-    Systematisches Ausmisten und Organisieren von Schränken, Kellern oder Vorratskammern.
-</p>
+<p class="text-slate-600 dark:text-slate-400">Systematisches Ausmisten und Organisieren von Schränken, Kellern oder Vorratskammern.</p>
 </div>
 <div class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
 <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
 <span class="material-symbols-outlined text-3xl">volunteer_activism</span>
 </div>
 <h3 class="mb-3 text-xl font-bold">Seniorenhilfe</h3>
-<p class="text-slate-600 dark:text-slate-400">
-    Empathische Unterstützung im Alltag, Begleitung zu Terminen und herzliche Gesellschaft.
-</p>
+<p class="text-slate-600 dark:text-slate-400">Empathische Unterstützung im Alltag, Begleitung zu Terminen und herzliche Gesellschaft.</p>
 </div>
 <div class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
 <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
 <span class="material-symbols-outlined text-3xl">calendar_today</span>
 </div>
 <h3 class="mb-3 text-xl font-bold">Fensterreinigung</h3>
-<p class="text-slate-600 dark:text-slate-400">
-    Strahlend saubere Fenster und Rahmen für den perfekten Durchblick in Ihrem Zuhause.
-</p>
+<p class="text-slate-600 dark:text-slate-400">Strahlend saubere Fenster und Rahmen für den perfekten Durchblick in Ihrem Zuhause.</p>
 </div>
 </div>
 </div>
@@ -213,6 +202,7 @@
 <p class="mt-4 text-slate-600 dark:text-slate-400">Finden Sie das passende Paket für Ihren Bedarf</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Mini Plan -->
 <div class="flex flex-col rounded-2xl border border-slate-200 dark:border-slate-800 p-8 transition-all hover:border-primary/50">
 <h3 class="text-lg font-bold">Mini</h3>
 <div class="mt-4 flex items-baseline">
@@ -236,6 +226,7 @@ Einkaufsservice
 </ul>
 <button class="mt-8 w-full rounded-xl border border-slate-200 dark:border-slate-700 py-3 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Paket wählen</button>
 </div>
+<!-- Standard Plan (Featured) -->
 <div class="relative flex flex-col rounded-2xl border-2 border-primary bg-slate-50 dark:bg-slate-900/50 p-8 shadow-xl">
 <div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold text-white uppercase tracking-wider">Beliebteste Wahl</div>
 <h3 class="text-lg font-bold">Standard</h3>
@@ -260,6 +251,7 @@ Müllentsorgung
 </ul>
 <button class="mt-8 w-full rounded-xl bg-primary py-3 text-sm font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-colors">Paket wählen</button>
 </div>
+<!-- Premium Plan -->
 <div class="flex flex-col rounded-2xl border border-slate-200 dark:border-slate-800 p-8 transition-all hover:border-primary/50">
 <h3 class="text-lg font-bold">Premium</h3>
 <div class="mt-4 flex items-baseline">
@@ -309,7 +301,7 @@ Organisation & Seniorenhilfe
 <div class="rounded-2xl bg-white dark:bg-slate-800 p-8 shadow-sm">
 <p class="italic text-slate-700 dark:text-slate-300">"Deborah ist ein absoluter Glücksgriff. Sie ist nicht nur unglaublich gründlich, sondern auch sehr diskret und freundlich. Endlich habe ich wieder Wochenenden ohne Putzen!"</p>
 <div class="mt-6 flex items-center gap-4">
-<div class="h-10 w-10 rounded-full bg-slate-100 avatar-bg"></div>
+<div class="h-10 w-10 rounded-full bg-slate-100 avatar-1"></div>
 <div>
 <p class="text-sm font-bold">Sabine W.</p>
 <p class="text-xs text-slate-500">München-Bogenhausen</p>
@@ -319,7 +311,7 @@ Organisation & Seniorenhilfe
 <div class="rounded-2xl bg-white dark:bg-slate-800 p-8 shadow-sm">
 <p class="italic text-slate-700 dark:text-slate-300">"Die Unterstützung bei meiner Mutter ist Gold wert. Deborah nimmt sich Zeit, hilft im Haushalt und geht mit ihr spazieren. Eine riesige Entlastung für unsere ganze Familie."</p>
 <div class="mt-6 flex items-center gap-4">
-<div class="h-10 w-10 rounded-full bg-slate-100" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+<div class="h-10 w-10 rounded-full bg-slate-100 avatar-2"></div>
 <div>
 <p class="text-sm font-bold">Thomas K.</p>
 <p class="text-xs text-slate-500">München-Sendling</p>
@@ -373,20 +365,20 @@ Organisation & Seniorenhilfe
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
 <label class="block text-sm font-medium mb-2">Vorname</label>
-<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="Max" type="text"/>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary py-3 px-4" placeholder="Max" type="text"/>
 </div>
 <div>
 <label class="block text-sm font-medium mb-2">Nachname</label>
-<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="Mustermann" type="text"/>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary py-3 px-4" placeholder="Mustermann" type="text"/>
 </div>
 </div>
 <div>
 <label class="block text-sm font-medium mb-2">E-Mail Adresse</label>
-<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="beispiel@mail.de" type="email"/>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary py-3 px-4" placeholder="beispiel@mail.de" type="email"/>
 </div>
 <div>
 <label class="block text-sm font-medium mb-2">Nachricht</label>
-<textarea class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" placeholder="Wie können wir Ihnen helfen?" rows="4"></textarea>
+<textarea class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary py-3 px-4" placeholder="Wie können wir Ihnen helfen?" rows="4"></textarea>
 </div>
 <button class="w-full rounded-xl bg-primary py-4 text-base font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all">Anfrage absenden</button>
 </form>
@@ -423,9 +415,9 @@ Organisation & Seniorenhilfe
 <div>
 <h4 class="text-white font-bold mb-6">Unternehmen</h4>
 <ul class="space-y-4 text-sm">
-<li><a class="hover:text-primary transition-colors" href="#">Über uns</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Preise</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Kontakt</a></li>
+<li><a class="hover:text-primary transition-colors" href="#about">Über uns</a></li>
+<li><a class="hover:text-primary transition-colors" href="#pricing">Preise</a></li>
+<li><a class="hover:text-primary transition-colors" href="#contact">Kontakt</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">Jobs</a></li>
 </ul>
 </div>
