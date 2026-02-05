@@ -1,525 +1,84 @@
 <!DOCTYPE html>
-<html lang="de">
+<html class="light" lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haushaltshilfe Meer - München | Senioren Haushaltshilfe</title>
-    <style>
-        :root {
-            --merry-green: #2d5a2d;
-            --light-green: #90c695;
-            --white: #ffffff;
-            --off-white: #f8f9fa;
-            --dark-blue: #1a365d;
-            --gray: #4a5568;
-            --light-gray: #e2e8f0;
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Haushaltshilfe Meer | Professionelle Hilfe in München</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13b6ec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
         }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Helvetica Neue', Arial, sans-serif; 
-            line-height: 1.7; 
-            color: var(--gray);
-            font-size: 20px;
-            overflow-x: hidden;
-        }
-        
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 30px; }
-        
-        /* Header - Sticky Navigation */
-        header { 
-            background: rgba(255,255,255,0.98); 
-            backdrop-filter: blur(20px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1); 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 1000;
-        }
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 1.5rem 0; 
-        }
-        .logo { 
-            font-size: 2em; 
-            font-weight: 800; 
-            background: linear-gradient(135deg, var(--merry-green), var(--light-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .nav-links { 
-            display: flex; 
-            list-style: none; 
-            gap: 3rem; 
-            font-size: 1.2em;
-        }
-        .nav-links a { 
-            color: var(--gray); 
-            text-decoration: none; 
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-        .nav-links a:hover, .nav-links a.active { 
-            background: var(--light-green); 
-            color: white;
-        }
-        
-        /* Hero Section - Full Screen Video Background Style */
-        .hero { 
-            height: 100vh; 
-            background: linear-gradient(rgba(45,90,45,0.7), rgba(45,90,45,0.3)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f0f9f0" width="1200" height="800"/><circle fill="%2390c695" opacity="0.3" cx="200" cy="200" r="100"/><circle fill="%232d5a2d" opacity="0.2" cx="1000" cy="600" r="150"/><path fill="%23e6f4e6" opacity="0.4" d="M300 100 Q400 50 500 150 T700 200"/></svg>');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-        .hero-content { max-width: 900px; }
-        .hero h1 { 
-            font-size: 4.5em; 
-            font-weight: 700; 
-            margin-bottom: 1.5rem; 
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        .hero p { 
-            font-size: 1.6em; 
-            margin-bottom: 3rem; 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-        .cta-buttons { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
-        .cta-primary { 
-            background: white; 
-            color: var(--merry-green); 
-            padding: 1.5rem 4rem; 
-            font-size: 1.4em; 
-            font-weight: 600;
-            border-radius: 50px; 
-            text-decoration: none;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: all 0.4s ease;
-        }
-        .cta-primary:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        .cta-secondary { 
-            background: transparent; 
-            color: white; 
-            border: 3px solid white;
-            padding: 1.3rem 3.5rem; 
-            font-size: 1.3em;
-            border-radius: 50px; 
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .cta-secondary:hover { background: white; color: var(--merry-green); }
-        
-        /* Sections */
-        section { padding: 120px 0; }
-        .section-title { 
-            font-size: 3.5em; 
-            text-align: center; 
-            margin-bottom: 4rem; 
-            color: var(--merry-green);
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--light-green);
-            border-radius: 2px;
-        }
-        
-        /* About - Work Showcase */
-        .about { background: var(--off-white); }
-        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-        .about-text { font-size: 1.3em; line-height: 1.8; }
-        .work-slider { position: relative; height: 500px; overflow: hidden; border-radius: 20px; }
-        .work-images { 
-            display: flex; 
-            height: 100%; 
-            transition: transform 0.8s ease;
-        }
-        .work-img { 
-            min-width: 100%; 
-            height: 100%; 
-            object-fit: cover;
-        }
-        .slider-dots { 
-            display: flex; 
-            justify-content: center; 
-            gap: 1rem; 
-            margin-top: 2rem;
-        }
-        .dot { 
-            width: 12px; 
-            height: 12px; 
-            border-radius: 50%; 
-            background: var(--light-gray); 
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .dot.active { background: var(--merry-green); transform: scale(1.3); }
-        
-        /* Services */
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
-            gap: 3rem; 
-        }
-        .service-card { 
-            background: white; 
-            padding: 3rem; 
-            border-radius: 20px; 
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: all 0.4s ease;
-            border-top: 5px solid var(--light-green);
-        }
-        .service-card:hover { transform: translateY(-15px); box-shadow: 0 30px 80px rgba(0,0,0,0.15); }
-        .service-icon { font-size: 4em; margin-bottom: 1.5rem; }
-        .service-card h3 { font-size: 1.8em; color: var(--merry-green); margin-bottom: 1rem; }
-        .service-features { list-style: none; text-align: left; }
-        .service-features li { padding: 0.8rem 0; font-size: 1.1em; position: relative; padding-left: 2rem; }
-        .service-features li::before { content: '✓'; color: var(--merry-green); font-weight: bold; position: absolute; left: 0; }
-        
-        /* Pricing */
-        .pricing { background: var(--off-white); }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
-        .price-card { 
-            background: white; 
-            padding: 3rem 2.5rem; 
-            border-radius: 20px; 
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        .price-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--merry-green), var(--light-green));
-        }
-        .price-highlight { 
-            border: 3px solid var(--light-green); 
-            transform: scale(1.05);
-        }
-        .price-amount { 
-            font-size: 3.5em; 
-            font-weight: 800; 
-            color: var(--merry-green);
-            margin: 1rem 0;
-        }
-        .price-frequency { color: var(--light-green); font-size: 1.3em; }
-        
-        /* Booking Form */
-        .booking { background: linear-gradient(135deg, var(--merry-green) 0%, var(--light-green) 100%); color: white; }
-        .booking-container { max-width: 800px; margin: 0 auto; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .form-group { margin-bottom: 2rem; }
-        .form-group label { display: block; margin-bottom: 0.8rem; font-weight: 600; font-size: 1.1em; }
-        .form-group input, .form-group select, .form-group textarea { 
-            width: 100%; 
-            padding: 1.3rem; 
-            font-size: 1.1em; 
-            border: none; 
-            border-radius: 12px; 
-            background: rgba(255,255,255,0.95);
-            font-family: inherit;
-        }
-        .whatsapp-cta { 
-            background: #25D366; 
-            color: white; 
-            padding: 1.5rem 3rem; 
-            font-size: 1.4em; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            display: inline-block; 
-            margin-top: 2rem;
-            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
-        }
-        
-        /* Footer */
-        footer { 
-            background: var(--dark-blue); 
-            color: white; 
-            text-align: center; 
-            padding: 4rem 0 2rem;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8em; }
-            .hero p { font-size: 1.3em; }
-            .form-grid { grid-template-columns: 1fr; }
-            .cta-buttons { flex-direction: column; align-items: center; }
-            .nav-links { display: none; }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
 </head>
-<body>
-    <header>
-        <nav class="container">
-            <div class="logo">🌊 Haushaltshilfe Meer</div>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">Über mich</a></li>
-                <li><a href="#services">Leistungen</a></li>
-                <li><a href="#prices">Preise</a></li>
-                <li><a href="#booking">Buchen</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined">waves</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Haushaltshilfe Meer</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#services">Leistungen</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#about">Über uns</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#pricing">Preise</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#contact">Kontakt</a>
+</nav>
+<button class="rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white hover:bg-primary/90 transition-all shadow-md shadow-primary/20">
+                    Jetzt anfragen
+                </button>
+</div>
+</header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Haushaltshilfe Meer</h1>
-            <p>Mehr Zeit. Mehr Ordnung. Mehr Leichtigkeit.<br>Zuverlässige Unterstützung für Senior*innen in München.</p>
-            <div class="cta-buttons">
-                <a href="#booking" class="cta-primary">Jetzt unverbindlich anfragen</a>
-                <a href="https://wa.me/4915901287209" class="cta-secondary" target="_blank">💬 WhatsApp</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">Über mich</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p><strong>Ich bin Deborah N</strong>, Gründerin von Haushaltshilfe Meer.</p>
-                    <p>Mit langjähriger Erfahrung in Alltagsorganisation, Seniorenbegleitung und haushaltsnahen Dienstleistungen unterstütze ich Menschen dabei, ihren Alltag leichter, strukturierter und entspannter zu gestalten.</p>
-                    <p><strong>Meine Mission:</strong> Sie sollen sich in Ihrem Zuhause wohlfühlen – mit zuverlässiger, respektvoller und professioneller Unterstützung.</p>
-                </div>
-                <div class="work-slider">
-                    <div class="work-images" id="workImages">
-                        <img class="work-img" src="https://images.unsplash.com/photo-1558618047-3c8c76bbb17e?w=1200" alt="Perfekte Küchenreinigung">
-                        <img class="work-img" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200" alt="Organisierter Kleiderschrank">
-                        <img class="work-img" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200" alt="Strahlendes Badezimmer">
-                        <img class="work-img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200" alt="Kristallklare Fenster">
-                    </div>
-                    <div class="slider-dots">
-                        <span class="dot active" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
-                        <span class="dot" onclick="currentSlide(3)"></span>
-                        <span class="dot" onclick="currentSlide(4)"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services">
-        <div class="container">
-            <h2 class="section-title">Unsere Leistungen</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🧹</div>
-                    <h3>Haushaltsreinigung</h3>
-                    <ul class="service-features">
-                        <li>Regelmäßige Reinigung</li>
-                        <li>Staubwischen, Saugen, Wischen</li>
-                        <li>Bad- und Küchenpflege</li>
-                        <li>Oberflächenreinigung</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">👕</div>
-                    <h3>Wäsche & Textilpflege</h3>
-                    <ul class="service-features">
-                        <li>Waschen & Bügeln</li>
-                        <li>Professionelles Zusammenlegen</li>
-                        <li>Sortieren und Organisieren</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛒</div>
-                    <h3>Einkäufe & Besorgungen</h3>
-                    <ul class="service-features">
-                        <li>Wocheneinkäufe erledigen</li>
-                        <li>Apotheken- und Rezeptabholung</li>
-                        <li>Begleitung zu Terminen</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📁</div>
-                    <h3>Organisation & Ordnung</h3>
-                    <ul class="service-features">
-                        <li>Sortieren von Unterlagen</li>
-                        <li>Struktur in Küche & Keller</li>
-                        <li>Seniorenunterstützung</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="prices" class="pricing">
-        <div class="container">
-            <h2 class="section-title">Transparente Preise</h2>
-            <div class="pricing-grid">
-                <div class="price-card">
-                    <h3>Mini</h3>
-                    <div class="price-amount">25€</div>
-                    <div class="price-frequency">pro Stunde</div>
-                    <p>2 Std/Woche</p>
-                    <ul style="list-style: none; padding: 0; text-align: left;">
-                        <li>✓ Basisreinigung</li>
-                        <li>✓ Staubwischen</li>
-                        <li>✓ Saubere Böden</li>
-                    </ul>
-                </div>
-                <div class="price-card price-highlight">
-                    <h3>Standard</h3>
-                    <div class="price-amount">28€</div>
-                    <div class="price-frequency">pro Stunde</div>
-                    <p>3-4 Std/Woche</p>
-                    <ul style="list-style: none; padding: 0; text-align: left;">
-                        <li>✓ Alles aus Mini</li>
-                        <li>✓ Küchenpflege</li>
-                        <li>✓ Badezimmer</li>
-                        <li>✓ Wäsche waschen</li>
-                    </ul>
-                </div>
-                <div class="price-card">
-                    <h3>Premium</h3>
-                    <div class="price-amount">35€</div>
-                    <div class="price-frequency">pro Stunde</div>
-                    <p>6 Std/Woche</p>
-                    <ul style="list-style: none; padding: 0; text-align: left;">
-                        <li>✓ Komplettservice</li>
-                        <li>✓ Organisation</li>
-                        <li>✓ Einkäufe</li>
-                        <li>✓ Begleitung</li>
-                    </ul>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <p style="font-size: 1.4em; font-weight: 600;">Einmalige Grundreinigung ab 120€</p>
-                <a href="#booking" class="cta-primary" style="display: inline-block; margin-top: 1rem;">Individuelles Angebot anfragen</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="booking" class="booking">
-        <div class="booking-container">
-            <h2 class="section-title" style="color: white;">Sofort buchen</h2>
-            <p style="text-align: center; font-size: 1.4em; margin-bottom: 3rem;">In 2 Minuten Ihren Termin vereinbaren</p>
-            <form id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="background: rgba(255,255,255,0.1); padding: 3rem; border-radius: 20px; backdrop-filter: blur(10px);">
-                <div class="form-grid">
-                    <div>
-                        <div class="form-group">
-                            <label>Ihr Name *</label>
-                            <input type="text" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Telefonnummer *</label>
-                            <input type="tel" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Gewünschter Service</label>
-                            <select name="service">
-                                <option value="">Paket auswählen</option>
-                                <option value="mini">Mini Paket (2 Std/Woche)</option>
-                                <option value="standard">Standard Paket (3-4 Std)</option>
-                                <option value="premium">Premium Paket (6 Std)</option>
-                                <option value="grundreinigung">Einmalige Grundreinigung</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="form-group">
-                            <label>Gewünschter Termin</label>
-                            <input type="date" name="date">
-                        </div>
-                        <div class="form-group">
-                            <label>Ihre Nachricht</label>
-                            <textarea name="message" rows="5" placeholder="Ihre Wünsche, Fragen oder besondere Anforderungen..."></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center;">
-                    <button type="submit" class="cta-primary" style="background: white; color: var(--merry-green); padding: 1.5rem 4rem; font-size: 1.4em; border: none; border-radius: 50px; font-weight: 600; cursor: pointer;">📅 Termin sichern</button>
-                </div>
-            </form>
-            <div style="text-align: center; margin-top: 3rem;">
-                <p style="font-size: 1.3em; margin-bottom: 1.5rem;">Oder direkt kontaktieren:</p>
-                <a href="https://wa.me/4915901287209?text=Haushaltshilfe%20Meer:%20Ich%20möchte%20einen%20Termin%20vereinbaren." class="whatsapp-cta" target="_blank">
-                    💬 Jetzt WhatsApp schreiben
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <h3>🌊 Haushaltshilfe Meer</h3>
-            <p>Ihr zuverlässiger Alltagsservice in München und Umgebung</p>
-            <p><strong>Inhaberin:</strong> Deborah Nyuon | <a href="tel:+4915901287209" style="color: var(--light-green);">0159 0128 7209</a> | <a href="mailto:deborahwilliam.24@gmail.com" style="color: var(--light-green);">deborahwilliam.24@gmail.com</a></p>
-            <p style="margin-top: 2rem; font-size: 0.9em;">
-                <a href="#" style="color: var(--light-green);">Impressum</a> | 
-                <a href="#" style="color: var(--light-green);">Datenschutz</a> | 
-                <a href="#" style="color: var(--light-green);">AGB</a>
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        // Navigation active states
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function() {
-                document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Work slider
-        let currentImage = 0;
-        const images = document.querySelectorAll('.work-img');
-        const dots = document.querySelectorAll('.dot');
-        
-        function showSlide(n) {
-            currentImage = (n + images.length) % images.length;
-            document.getElementById('workImages').style.transform = `translateX(-${currentImage * 100}%)`;
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[currentImage].classList.add('active');
-        }
-        
-        function currentSlide(n) {
-            showSlide(n - 1);
-        }
-        
-        // Auto slide
-        setInterval(() => {
-            showSlide(currentImage + 1);
-        }, 4000);
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        // Form submission
-        document.getElementById('bookingForm').addEventListener('submit', function() {
-            alert('🎉 Vielen Dank für Ihre Anfrage!\n\nSie erhalten innerhalb von 24 Stunden eine Rückmeldung per E-Mail oder WhatsApp.');
-        });
-    </script>
-</body>
-</html>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative px-6 py-12 md:py-24">
+<div class="mx-auto max-w-7xl">
+<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+<div class="relative z-10 flex flex-col gap-8">
+<div>
+<h1 class="text-4xl font-black leading-tight tracking-tight text-slate-900 dark:text-white md:text-6xl">
+                                    Mehr Zeit. <br/>
+<span class="text-primary">Mehr Ordnung.</span> <br/>
+                                    Mehr Leichtigkeit.
+                                </h1>
+<p class="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-lg">
+                                    Professionelle Haushaltshilfe in München für Senioren, Familien und Berufstätige. Wir schenken Ihnen Freiraum für die wichtigen Dinge im Leben.
+</p>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="rounded-xl bg-primary px-8 py-4 text-base font-bold text-white hover:bg-primary/90 transition-all shadow-lg shadow-primary/25">
+                                    Jetzt unverbindlich anfragen
+</button>
+<button class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-8 py-4 text-base font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
+                                    Unsere Leistungen
+</button>
+</div>
+<div class="flex items-center gap-4 text-sm text-slate-500">
+<div class="flex -space-x-2">
+<div class="h-8 w-8 rounded-full border-2 border-white bg-slate-200" data-alt="Portrait of a happy customer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfNNe5IotmXWslpE_a7R96JlVriaoo
